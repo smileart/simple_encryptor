@@ -26,7 +26,7 @@ Or install it yourself as:
 
 ```ruby
 secret_key = 'foobarfoobarfoobarfoobarfoobarfo' # 32 byte string
-iv         = 'foobarfoobarfoob'                 # 16 bit string (static/dynamic)
+iv         = 'foobarfoobarfoob'                 # 16 byte string (static/dynamic)
 
 SimpleEncryptor.encrypt('Bond, James Bond', secret_key, iv)
 # AES 256 CBC Openssl Encrypted String:
