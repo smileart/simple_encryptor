@@ -18,7 +18,7 @@ require 'base64'
 #
 class SimpleEncryptor
   # Current lib version
-  VERSION = '0.0.1'
+  VERSION = '0.0.2'
 
   # Encryption type to use (set as a constant since changing it without changing
   # code is unlikely)
@@ -28,14 +28,13 @@ class SimpleEncryptor
   #
   # @param [String] secret the massage to encrypt
   # @param [String] key secret key to encrypt message with (32 bytes)
-  # @param [String] iv initialisation vector (16 bytes, shouldn't be cipher.random_iv for symmetrical cipher)
   #
   # @return [String] encrypted message (url-safe, Base64)
-  def self.encrypt(secret, key, iv)
+  def self.encrypt(secret, key, _ = "\0")
     cipher = OpenSSL::Cipher.new(ENCRYPTION_TYPE).encrypt
 
     cipher.key = key
-    cipher.iv  = iv # initialisation vector
+    iv = cipher.random_iv # initialisation vector
 
     encrypted = cipher.update(secret) + cipher.final
     encrypted = iv + encrypted

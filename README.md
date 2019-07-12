@@ -2,9 +2,9 @@
 
 > Simple, url-safe, opinionated string encryption
 
-What if you need just an encrypted string in an URL-safe format? All these hard decisions and cryptography terminology, dubious snippets from StackOverflow, comprehensive all-in-one gems with hundreds algorithms and use-cases can be quite confusing and give unnecessary overhead.
+What if you need just an encrypted string in a URL-safe format? All these hard decisions and cryptography terminology, dubious snippets from StackOverflow, comprehensive all-in-one gems with hundreds of algorithms and use-cases can be quite confusing and give unnecessary overhead.
 
-`SimpleEncryptor` does exactly what it says on the tin — simply encrypts a string (symmetrically/asymmetrically, dependin on dynamic/static IV you provide) and returns it in URL-safe format you can use in your links if needed.
+`SimpleEncryptor` does exactly what it says on the tin — simply encrypts a string and returns it in URL-safe format you can use in your links if needed.
 
 ## Installation
 
@@ -26,14 +26,13 @@ Or install it yourself as:
 
 ```ruby
 secret_key = 'foobarfoobarfoobarfoobarfoobarfo' # 32 byte string
-iv         = 'foobarfoobarfoob'                 # 16 byte string (static/dynamic)
 
-SimpleEncryptor.encrypt('Bond, James Bond', secret_key, iv)
+SimpleEncryptor.encrypt('Bond, James Bond', secret_key)
 # AES 256 CBC Openssl Encrypted String:
 # => Zm9vYmFyZm9vYmFyZm9vYhwQbII-Col3sO7re1_ypzvtSRkDot6MH5oNr0Q5ql6S
 
 SimpleEncryptor.decrypt(
-  'Zm9vYmFyZm9vYmFyZm9vYhwQbII-Col3sO7re1_ypzvtSRkDot6MH5oNr0Q5ql6S', 
+  'Zm9vYmFyZm9vYmFyZm9vYhwQbII-Col3sO7re1_ypzvtSRkDot6MH5oNr0Q5ql6S',
   secret_key
 ) # => 'Bond, James Bond'
 ```
