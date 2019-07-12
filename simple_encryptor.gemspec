@@ -32,5 +32,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop',        '~> 0.51'
   spec.add_development_dependency 'rubygems-tasks', '~> 0.2'
   spec.add_development_dependency 'simplecov',      '~> 0.15'
-  spec.add_development_dependency 'yard',           '~> 0.8'
+  spec.add_development_dependency 'yard',           '~> 0.9'
 end

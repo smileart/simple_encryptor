@@ -18,7 +18,7 @@ require 'base64'
 #
 class SimpleEncryptor
   # Current lib version
-  VERSION = '0.0.2'
+  VERSION = '0.0.3'
 
   # Encryption type to use (set as a constant since changing it without changing
   # code is unlikely)
